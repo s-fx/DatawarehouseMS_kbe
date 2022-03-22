@@ -24,4 +24,7 @@ public class Laptop {
         this.location = location;
         this.mehrwertsteuer = BigDecimal.valueOf(0.00);
     }
+
+    public Laptop() {
+    }
 }
