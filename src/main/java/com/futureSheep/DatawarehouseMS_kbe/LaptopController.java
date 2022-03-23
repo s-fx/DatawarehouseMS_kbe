@@ -2,6 +2,7 @@ package com.futureSheep.DatawarehouseMS_kbe;
 
 import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
 import lombok.AllArgsConstructor;
+import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("api/v1")
 @AllArgsConstructor
+@CommonsLog
 public class LaptopController {
 
     private final ProductService productService;
