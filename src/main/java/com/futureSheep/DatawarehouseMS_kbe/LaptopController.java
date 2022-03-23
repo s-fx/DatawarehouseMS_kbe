@@ -24,8 +24,8 @@ public class LaptopController {
      * curl localhost:8080/api/laptops
      */
     @GetMapping("/laptops")
-    public List<Laptop> getAllLaptops() {
-        List<Laptop> laptops = productService.collectAllLaptops();
+    public Laptop[] getAllLaptops() {
+        Laptop[] laptops = productService.collectAllLaptops();
         return laptops;
     }
 

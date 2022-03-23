@@ -23,7 +23,7 @@ public class DbLoader implements CommandLineRunner {
         Location location = new Location(52.521992, 13.413244);
         Laptop laptop = new Laptop(UUID.randomUUID(), "HP_DATAWAREHOUSE", BigDecimal.valueOf(299.9), 3.3, location, BigDecimal.valueOf(0.0));
         Laptop laptop2 = new Laptop(UUID.randomUUID(), "DELL_DATAWAREHOUSE", BigDecimal.valueOf(599.9), 34.3, location, BigDecimal.valueOf(0.0));
-
+        laptopRepository.deleteAll();
         laptopRepository.save(laptop);
         laptopRepository.save(laptop2);
 

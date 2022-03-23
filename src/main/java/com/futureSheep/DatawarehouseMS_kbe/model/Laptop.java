@@ -37,4 +37,10 @@ public class Laptop {
 
     public Laptop() {
     }
+
+    public Laptop(String brand, BigDecimal price, double weight) {
+        this.brand = brand;
+        this.price = price;
+        this.weight = weight;
+    }
 }

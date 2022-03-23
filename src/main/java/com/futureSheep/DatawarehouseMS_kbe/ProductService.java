@@ -22,15 +22,16 @@ public class ProductService {
     private LaptopValidationService validationService;
 
 
-    public List<Laptop> collectAllLaptops() {
+    public Laptop[] collectAllLaptops() {
 /*        List<Laptop> laptops = repository.findAll().stream() //
                 .map(assembler::toModel) //
                 .collect(Collectors.toList());
         for (Laptop laptop : laptops) {
             Laptop lap = laptop;
         }*/
-
-        return repository.findAll();
+        List<Laptop> laptopList = repository.findAll();
+        Laptop[] laptopArray = laptopList.toArray(new Laptop[laptopList.size()]);
+        return laptopArray;
     }
 
     public Laptop validateLaptopBeforeSavingIntoDB(Laptop laptop) {
