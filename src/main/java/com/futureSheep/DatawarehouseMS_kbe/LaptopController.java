@@ -44,7 +44,7 @@ public class LaptopController {
      * Link: includes a URI and a relation (see assembler)
      */
     @GetMapping("/laptops/{id}")
-    public Laptop getLaptop(@PathVariable String id) {
+    public Laptop getLaptop(@PathVariable UUID id) {
         return productService.getSingleLaptop(id);
     }
 
@@ -54,7 +54,7 @@ public class LaptopController {
      * curl -v -X DELETE localhost:8080/api/laptops/UUID
      */
     @DeleteMapping("/laptops/{id}")
-    ResponseEntity<?> deleteLaptop(@PathVariable String id) {
+    ResponseEntity<?> deleteLaptop(@PathVariable UUID id) {
         productService.deleteLaptop(id);
         return ResponseEntity.noContent().build();
     }

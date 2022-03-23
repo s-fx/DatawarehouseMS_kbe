@@ -43,13 +43,13 @@ public class ProductService {
     }
 
 
-    public Laptop getSingleLaptop(String id) {
+    public Laptop getSingleLaptop(UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
         return laptop;
     }
 
 
-    public void deleteLaptop(String id) {
+    public void deleteLaptop(UUID id) {
         if(repository.findById(id).isEmpty()) {
             throw new LaptopNotFoundException(id);
         }
@@ -57,7 +57,7 @@ public class ProductService {
     }
 
 
-    public BigDecimal getPriceOfLaptop(String id) {
+    public BigDecimal getPriceOfLaptop(UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
         return laptop.getPrice();
     }
