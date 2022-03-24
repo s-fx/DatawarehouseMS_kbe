@@ -1,12 +1,19 @@
 package com.futureSheep.DatawarehouseMS_kbe.csvImporter;
 
+import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import lombok.extern.apachecommons.CommonsLog;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @CommonsLog
 public class CSVImporterImpl implements CSVImporter {

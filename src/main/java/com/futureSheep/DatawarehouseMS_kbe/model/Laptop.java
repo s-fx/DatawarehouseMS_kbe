@@ -18,6 +18,14 @@ public class Laptop {
     private Location location;
     private BigDecimal mehrwertsteuer;
 
+    public Laptop(UUID id, String brand, BigDecimal price, double weight, BigDecimal mehrwertsteuer) {
+        this.id = id;
+        this.brand = brand;
+        this.price = price;
+        this.weight = weight;
+        this.mehrwertsteuer = mehrwertsteuer;
+    }
+
     public Laptop(UUID id, String brand, BigDecimal price, double weight, Location location, BigDecimal mehrwertsteuer) {
         this.id = id;
         this.brand = brand;
