@@ -15,40 +15,18 @@ public class Laptop {
     private String brand;
     private BigDecimal price;
     private double weight;
-    private Location location;
-    private BigDecimal mehrwertsteuer;
+    private double mehrwertsteuer;
 
-    public Laptop(UUID id, String brand, BigDecimal price, double weight, BigDecimal mehrwertsteuer) {
+    public Laptop(UUID id, String brand, BigDecimal price, double weight, double mehrwertsteuer) {
         this.id = id;
         this.brand = brand;
         this.price = price;
         this.weight = weight;
-        this.mehrwertsteuer = mehrwertsteuer;
+        this.mehrwertsteuer = 0.0;
     }
 
-    public Laptop(UUID id, String brand, BigDecimal price, double weight, Location location, BigDecimal mehrwertsteuer) {
-        this.id = id;
-        this.brand = brand;
-        this.price = price;
-        this.weight = weight;
-        this.location = location;
-        this.mehrwertsteuer = BigDecimal.valueOf(0.00);
-    }
-
-    public Laptop(String brand, BigDecimal price, double weight, Location location) {
-        this.brand = brand;
-        this.price = price;
-        this.weight = weight;
-        this.location = location;
-        this.mehrwertsteuer = BigDecimal.valueOf(0.00);
-    }
 
     public Laptop() {
     }
 
-    public Laptop(String brand, BigDecimal price, double weight) {
-        this.brand = brand;
-        this.price = price;
-        this.weight = weight;
-    }
 }

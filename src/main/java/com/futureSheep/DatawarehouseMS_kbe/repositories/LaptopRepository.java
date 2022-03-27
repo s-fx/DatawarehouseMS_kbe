@@ -1,4 +1,4 @@
-package com.futureSheep.DatawarehouseMS_kbe;
+package com.futureSheep.DatawarehouseMS_kbe.repositories;
 
 import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
 import org.springframework.data.mongodb.repository.MongoRepository;

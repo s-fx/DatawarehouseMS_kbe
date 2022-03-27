@@ -1,10 +1,9 @@
-package com.futureSheep.DatawarehouseMS_kbe.csvImporter;
+package com.futureSheep.DatawarehouseMS_kbe.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class CSVHelper {
 
     public static String TYPE = "text/csv";
-    static String[] HEADERs = { "Id", "Title", "Description", "Published" };
 
     public static boolean hasCSVFormat(MultipartFile file) {
         if (!TYPE.equals(file.getContentType())) {
@@ -39,7 +37,7 @@ public class CSVHelper {
                         csvRecord.get(1),
                         BigDecimal.valueOf(Double.parseDouble(csvRecord.get(2))),
                         Double.parseDouble(csvRecord.get(3)),
-                        BigDecimal.valueOf(Double.parseDouble(csvRecord.get(4)))
+                        Double.valueOf(csvRecord.get(4))
                 );
                 laptops.add(laptop);
                 System.out.println(laptops);

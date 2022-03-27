@@ -1,12 +1,12 @@
-package com.futureSheep.DatawarehouseMS_kbe;
+package com.futureSheep.DatawarehouseMS_kbe.controller;
 
+import com.futureSheep.DatawarehouseMS_kbe.services.ProductService;
 import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
 import lombok.AllArgsConstructor;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController

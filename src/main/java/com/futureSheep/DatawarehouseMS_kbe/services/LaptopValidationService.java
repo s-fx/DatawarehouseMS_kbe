@@ -1,6 +1,6 @@
-package com.futureSheep.DatawarehouseMS_kbe;
+package com.futureSheep.DatawarehouseMS_kbe.services;
 
-import com.futureSheep.DatawarehouseMS_kbe.ProductService;
+import com.futureSheep.DatawarehouseMS_kbe.services.ProductService;
 import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;

@@ -1,17 +1,16 @@
-package com.futureSheep.DatawarehouseMS_kbe;
+package com.futureSheep.DatawarehouseMS_kbe.services;
 
-import com.futureSheep.DatawarehouseMS_kbe.controller.LaptopNotFoundException;
+import com.futureSheep.DatawarehouseMS_kbe.exceptions.LaptopNotFoundException;
 import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
+import com.futureSheep.DatawarehouseMS_kbe.repositories.LaptopRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
 
 
-import javax.websocket.server.ServerEndpoint;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -23,12 +22,6 @@ public class ProductService {
 
 
     public Laptop[] collectAllLaptops() {
-/*        List<Laptop> laptops = repository.findAll().stream() //
-                .map(assembler::toModel) //
-                .collect(Collectors.toList());
-        for (Laptop laptop : laptops) {
-            Laptop lap = laptop;
-        }*/
         List<Laptop> laptopList = repository.findAll();
         Laptop[] laptopArray = laptopList.toArray(new Laptop[laptopList.size()]);
         return laptopArray;

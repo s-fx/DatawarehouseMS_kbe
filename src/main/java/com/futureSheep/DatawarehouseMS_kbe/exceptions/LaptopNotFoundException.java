@@ -1,4 +1,6 @@
-package com.futureSheep.DatawarehouseMS_kbe.controller;
+package com.futureSheep.DatawarehouseMS_kbe.exceptions;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.UUID;
 
