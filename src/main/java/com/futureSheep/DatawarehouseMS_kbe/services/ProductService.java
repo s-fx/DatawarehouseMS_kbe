@@ -44,16 +44,10 @@ public class ProductService {
 
 
     public void deleteLaptop(UUID id) {
-        if(repository.findById(id).isEmpty()) {
+        if (repository.findById(id).isEmpty()) {
             throw new LaptopNotFoundException(id);
         }
         repository.deleteById(id);
-    }
-
-
-    public BigDecimal getPriceOfLaptop(UUID id) {
-        Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
-        return laptop.getPrice();
     }
 
 

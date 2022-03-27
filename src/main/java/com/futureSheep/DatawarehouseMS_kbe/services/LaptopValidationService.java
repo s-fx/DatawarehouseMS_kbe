@@ -14,26 +14,15 @@ import java.util.Set;
 @Service("LaptopValidationService")
 public class LaptopValidationService {
 
-    //@Autowired
     private Validator validator;
 
-
-/*   @Autowired
-    private DataStorageEntryPoint wasAuchImmer
-    -> das hier ist das interface um die laptops zu
-    unserer data storage zu adden, glaube wir benutzen hier
-    hibernate aber kann auch sein dass wir hier noch
-    ne dao klasse schreiben müssen.*/
-
-    //@Autowired
     private ProductService productService;
 
     @Autowired
-    public LaptopValidationService(Validator validator, @Lazy ProductService productService){
+    public LaptopValidationService(Validator validator, @Lazy ProductService productService) {
         this.validator = validator;
         this.productService = productService;
     }
-
 
 
     public String addLaptop(Laptop laptop) {

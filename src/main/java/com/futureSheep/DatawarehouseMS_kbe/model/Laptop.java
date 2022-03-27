@@ -22,7 +22,7 @@ public class Laptop {
         this.brand = brand;
         this.price = price;
         this.weight = weight;
-        this.mehrwertsteuer = 0.0;
+        this.mehrwertsteuer = mehrwertsteuer;
     }
 
 

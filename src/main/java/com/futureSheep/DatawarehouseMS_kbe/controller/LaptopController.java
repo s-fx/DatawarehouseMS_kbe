@@ -18,49 +18,29 @@ public class LaptopController {
     private final ProductService productService;
 
 
-    /**
-     * CollectionModel = HATEOAS container, encapsulate collection of laptop resources
-     * why all these links? => makes it possible to evolve REST services over time
-     * curl localhost:8080/api/laptops
-     */
     @GetMapping("/laptops")
     public Laptop[] getAllLaptops() {
         Laptop[] laptops = productService.collectAllLaptops();
         return laptops;
     }
 
-    /**
-     * curl -v -X POST localhost:8080/api/laptops -H 'Content-Type:application/json' -d '{"brand": "JAJAJAJA", "price": "229.99", "weight": "12.1"}'
-     * why wildcard <?> ???
-     */
     @PostMapping("/laptops")
     public Laptop addLaptop(@RequestBody Laptop newLaptop) {
         Laptop laptop = productService.validateLaptopBeforeSavingIntoDB(newLaptop);
         return laptop;
     }
 
-    /**
-     * Get a single Laptop by id
-     * EntityModel<T> = HATEOAS container, containing data and collection of links
-     * curl command: curl -v localhost:8080/api/laptops/UUID | json_pp
-     * Link: includes a URI and a relation (see assembler)
-     */
     @GetMapping("/laptops/{id}")
     public Laptop getLaptop(@PathVariable UUID id) {
         return productService.getSingleLaptop(id);
     }
 
 
-
-    /**
-     * curl -v -X DELETE localhost:8080/api/laptops/UUID
-     */
     @DeleteMapping("/laptops/{id}")
     ResponseEntity<?> deleteLaptop(@PathVariable UUID id) {
         productService.deleteLaptop(id);
         return ResponseEntity.noContent().build();
     }
-
 
 
 }
