@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.UUID;
 
 import com.futureSheep.DatawarehouseMS_kbe.model.Laptop;
+import lombok.extern.apachecommons.CommonsLog;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
+
+@CommonsLog
 public class CSVHelper {
 
     public static String TYPE = "text/csv";
@@ -40,10 +43,11 @@ public class CSVHelper {
                         Double.valueOf(csvRecord.get(4))
                 );
                 laptops.add(laptop);
-                System.out.println(laptops);
             }
+            log.info("[CSVHelper] extract Laptops from CSV");
             return laptops;
         } catch (IOException e) {
+            log.warn("[CSVHelper] fail to parse CSV file: " + e.getMessage());
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
         }
     }

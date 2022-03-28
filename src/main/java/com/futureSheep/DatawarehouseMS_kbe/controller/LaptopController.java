@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("/api/v1/laptops")
 @AllArgsConstructor
 @CommonsLog
 public class LaptopController {
@@ -18,49 +18,33 @@ public class LaptopController {
     private final ProductService productService;
 
 
-    /**
-     * CollectionModel = HATEOAS container, encapsulate collection of laptop resources
-     * why all these links? => makes it possible to evolve REST services over time
-     * curl localhost:8080/api/laptops
-     */
-    @GetMapping("/laptops")
+    @GetMapping
     public Laptop[] getAllLaptops() {
         Laptop[] laptops = productService.collectAllLaptops();
+        log.info("[LaptopController] get all Laptops (Length): " + laptops.length);
         return laptops;
     }
 
-    /**
-     * curl -v -X POST localhost:8080/api/laptops -H 'Content-Type:application/json' -d '{"brand": "JAJAJAJA", "price": "229.99", "weight": "12.1"}'
-     * why wildcard <?> ???
-     */
-    @PostMapping("/laptops")
+    @PostMapping
     public Laptop addLaptop(@RequestBody Laptop newLaptop) {
         Laptop laptop = productService.validateLaptopBeforeSavingIntoDB(newLaptop);
+        log.info("[LaptopController] add Laptops: " + newLaptop);
         return laptop;
     }
 
-    /**
-     * Get a single Laptop by id
-     * EntityModel<T> = HATEOAS container, containing data and collection of links
-     * curl command: curl -v localhost:8080/api/laptops/UUID | json_pp
-     * Link: includes a URI and a relation (see assembler)
-     */
-    @GetMapping("/laptops/{id}")
+    @GetMapping("/{id}")
     public Laptop getLaptop(@PathVariable UUID id) {
+        log.info("[LaptopController] get Laptop with id: " + id);
         return productService.getSingleLaptop(id);
     }
 
 
-
-    /**
-     * curl -v -X DELETE localhost:8080/api/laptops/UUID
-     */
-    @DeleteMapping("/laptops/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<?> deleteLaptop(@PathVariable UUID id) {
         productService.deleteLaptop(id);
+        log.info("[LaptopController] delete Laptop with id: " + id);
         return ResponseEntity.noContent().build();
     }
-
 
 
 }
